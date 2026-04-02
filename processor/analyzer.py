@@ -1,12 +1,16 @@
-def analyze_data(df):
+import pandas as pd
+
+def analyze_data(df: pd.DataFrame) -> dict:
     summary = {}
 
-    for column in df.select_dtypes(include=['int64', 'float64']).columns:
+    numeric_cols = df.select_dtypes(include=['number']).columns
+
+    for column in numeric_cols:
         summary[column] = {
-            "mean": df[column].mean(),
-            "sum": df[column].sum(),
-            "max": df[column].max(),
-            "min": df[column].min(),
+            "mean": float(df[column].mean()),
+            "sum": float(df[column].sum()),
+            "max": float(df[column].max()),
+            "min": float(df[column].min()),
         }
 
     return summary
