@@ -1,7 +1,10 @@
 import json
+import os
 from datetime import datetime
 
 def generate_report(summary):
+    os.makedirs("data/processed", exist_ok=True)
+
     report = {
         "generated_at": str(datetime.now()),
         "summary": summary
