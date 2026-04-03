@@ -1,7 +1,25 @@
-# data_automation-
+## ⚙️ Automation Pipeline (CI/CD)
 
-This project is a backend-driven data processing automation system designed to transform raw, messy CSV data into clean, structured outputs and actionable reports.
-It simulates real-world business workflows where data must be cleaned, analyzed, and delivered automatically.
+This project includes a fully automated data processing pipeline using GitHub Actions.
+
+
+### Trigger:
+- Manual trigger via GitHub Actions UI (`workflow_dispatch`)
+
+### Pipeline Steps:
+
+1. Setup Python environment 
+ 
+2. Install dependencies  
+
+3. Generate sample input data  
+
+4. Run processing pipeline (`main.py`)  
+
+5. Upload report artifact (`report.json`)  
+
+This ensures the system can run independently of local machines..
+
 
 🎯 Features
 
@@ -52,17 +70,17 @@ EMAIL_TO=recipient@example.com
 
 > Note: Never hardcode credentials in source code. This project follows secure practices using environment variables and GitHub Secrets.
 
-📊 Example Workflow
+ Workflow Capabilities:
 
-• Load raw CSV data
+- Runs in a cloud environment (Ubuntu runner)
 
-• Clean and normalize dataset
+- Automatically processes CSV data
 
-• Analyze numeric fields
+- Generates cleaned data and analytics reports
 
-• Generate JSON report
+- Uploads output as downloadable artifacts
 
-• Send report via email
+- Supports secure email automation via secrets
 
 📈 Use Cases
 
@@ -76,11 +94,4 @@ EMAIL_TO=recipient@example.com
 
 🔥 Key Highlight
 
-Designed with backend engineering principles:
-
-• Separation of concerns
-
-• Modular architecture
-
-• Scalable processing pipeline
 
