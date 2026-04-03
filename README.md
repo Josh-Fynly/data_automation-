@@ -20,18 +20,33 @@ This project includes a fully automated data processing pipeline using GitHub Ac
 
 This ensures the system can run independently of local machines..
 
+ 📊 PROOF OF EXECUTION
 
-🎯 Features
+The pipeline has been successfully executed in a cloud environment.
 
-Data cleaning pipeline (duplicates, missing values)
+ VERIFICATION:
+- GitHub Actions logs confirm full execution  
 
-Automated data analysis (mean, sum, min, max)
+- Output file (`report.json`) generated successfully 
+ 
+- Artifact available for download after workflow run  
 
-Structured report generation (JSON output)
+EXAMPLE OUTPUT:
 
-Email delivery of reports (SMTP integration)
+Loading data...  
 
-Modular, scalable backend architecture
+Cleaning data...  
+
+Saving cleaned data...  
+
+Analyzing data...  
+
+Generating report...  
+
+Pipeline completed successfully.  
+
+This demonstrates real backend automation and production workflow capability.
+
 
 🧠 Architecture
 
@@ -43,6 +58,7 @@ utils/ → file handling & email service
 
 main.py → pipeline orchestration
 
+
 ⚙️ Tech Stack
 
 Python
@@ -53,12 +69,14 @@ NumPy
 
 SMTP (Email automation)
 
+
 ▶️ How to Run
 
 pip install -r requirements.txt
 python main.py
 
-## 🔐 Environment Variables
+
+ 🔐 ENVIRONMENT VARIABLES
 
 This project uses environment variables for secure credential handling.
 
@@ -70,7 +88,7 @@ EMAIL_TO=recipient@example.com
 
 > Note: Never hardcode credentials in source code. This project follows secure practices using environment variables and GitHub Secrets.
 
- Workflow Capabilities:
+ WORKFLOW CAPABILITIES:
 
 - Runs in a cloud environment (Ubuntu runner)
 
@@ -81,6 +99,7 @@ EMAIL_TO=recipient@example.com
 - Uploads output as downloadable artifacts
 
 - Supports secure email automation via secrets
+
 
 📈 Use Cases
 
@@ -93,7 +112,7 @@ EMAIL_TO=recipient@example.com
 4. Backend data services
 
 
- 🧠 Engineering Highlights
+ 🧠 ENGINEERING HIGHLIGHTS
 
 - Modular backend architecture (separation of concerns)
   
