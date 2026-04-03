@@ -92,6 +92,17 @@ EMAIL_TO=recipient@example.com
 
 4. Backend data services
 
-🔥 Key Highlight
+
+ 🧠 Engineering Highlights
+
+- Modular backend architecture (separation of concerns)
+  
+- Stateless data processing pipeline 
+ 
+- CI/CD integration for automated execution  
+
+- Secure credential handling (environment variables)  
+
+- Designed for scalability and API extension
 
 
