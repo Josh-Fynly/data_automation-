@@ -1,6 +1,5 @@
 name: Data Automation Pipeline
 
-# Manual trigger only
 on:
   workflow_dispatch:
 
@@ -9,26 +8,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repo
+      # 1. Checkout repo
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Setup Python
+      # 2. Setup Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
-      # Step 3: Install dependencies
+      # 3. Install dependencies
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Run your pipeline
+      # 4. Ensure data folders exist
+      - name: Prepare directories
+        run: |
+          mkdir -p data/raw
+          mkdir -p data/processed
+
+      # 5. Create sample input (CRITICAL for GitHub runner)
+      - name: Create sample CSV
+        run: |
+          echo "Name,Sales,Profit" > data/raw/input.csv
+          echo "A,100,20" >> data/raw/input.csv
+          echo "B,200," >> data/raw/input.csv
+          echo "A,100,20" >> data/raw/input.csv
+          echo "C,300,50" >> data/raw/input.csv
+
+      # 6. Run your pipeline
       - name: Run data pipeline
         env:
-          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
         run: |
           python main.py
+
+      # 7. Upload proof (VERY IMPORTANT)
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: processed-report
+          path: data/processed/report.json
