@@ -40,12 +40,17 @@ SMTP (Email automation)
 pip install -r requirements.txt
 python main.py
 
-🔐 Environment Variables
+## 🔐 Environment Variables
 
-Create .env:
-EMAIL_SENDER=your_email@gmail.com
-EMAIL_PASSWORD=your_app_password
-EMAIL_RECEIVER=receiver_email@gmail.com
+This project uses environment variables for secure credential handling.
+
+Create a `.env` file locally or configure GitHub Secrets:
+
+EMAIL_USER=your_email@gmail.com  
+EMAIL_PASS=your_app_password  
+EMAIL_TO=recipient@example.com  
+
+> Note: Never hardcode credentials in source code. This project follows secure practices using environment variables and GitHub Secrets.
 
 📊 Example Workflow
 
