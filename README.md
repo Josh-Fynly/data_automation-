@@ -254,7 +254,7 @@ Backend Software Engineer
 https://github.com/Josh-Fynly
 
 **Portfolio**  
-https://my-portfolio-zfnv.vercel.app
+https://my-portfolio-zfrw.vercel.app/
 
 **LinkedIn**  
 https://linkedin.com/in/joshua-ekpenyong-014014340
